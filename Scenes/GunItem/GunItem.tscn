@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/GunItem/gun_item.gd" type="Script" id=1]
+[ext_resource path="res://Assets/icon.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Weapons/Minigun.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 68, 48 )
+
+[node name="GunItem" type="Area2D" groups=["pickup"]]
+script = ExtResource( 1 )
+gun = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

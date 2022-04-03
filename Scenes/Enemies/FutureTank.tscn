@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Sexy Tank.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Enemies/auto_fire.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Weapons/Lasergun.tscn" type="PackedScene" id=4]
+
+[node name="FutureTank" instance=ExtResource( 1 )]
+position = Vector2( 1, 1 )
+max_health = 500
+
+[node name="sprite" parent="." index="0"]
+position = Vector2( 2, -2 )
+rotation = -1.5708
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+gun_path = NodePath("../Lasergun")
+
+[node name="Lasergun" parent="." index="3" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( -21, 3 )
+bullet_speed = 25
+shake_factor = 0.1
+aim_factor = 0.0
+damage = 50
+fire_rate = 5.0
